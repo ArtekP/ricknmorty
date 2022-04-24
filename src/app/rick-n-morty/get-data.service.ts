@@ -35,8 +35,8 @@ export class GetDataService {
       res.characters.map((charLink: string) => {
         linksArr.push(charLink);
       });
-      linksArr.map((link: string) => {
-        this.http.get<Character>(link).subscribe((y: Character) => {
+      linksArr.map((charLink: string) => {
+        this.http.get<Character>(charLink).subscribe((y: Character) => {
           newArr.push({name: y['name'], image: y['image']})
         })
         this.result = newArr;

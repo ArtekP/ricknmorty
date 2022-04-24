@@ -9,10 +9,12 @@
 <div class="list" *ngIf="isListVisible">
   <ul class="ul">
     <li *ngFor="let episode of listOfEpisodes; let index = index">
-      <span>Episode {{ episode['id'] }}: {{ episode['name'] }}, {{episode['air_date'] | date:'dd/MM/yyyy'}}. </span>
-      <span *ngFor="let char of episodeCharacters; let index2 = index">{{char.name}}
-        <img style="width: 2em; height: 2em;" [src]="char.image">,
-      </span>
+      <span style="display: block;font-size:1.5em; font-weight: 700">Episode {{ episode['id'] }}: {{ episode['name'] }},
+        {{episode['air_date'] | date:'dd/MM/yyyy'}}</span>
+      <p style="display: block; padding: 0.3rem; height: 2rem; line-height: 2rem;"
+        *ngFor="let char of episodeCharacters; let index2 = index">&nbsp;&nbsp;{{char.name}}&nbsp;&nbsp;
+        <img style="width: 2em; height: 2rem; border-radius: 0.25em" [src]="char.image">
+      </p>
     </li>
   </ul>
 </div>
