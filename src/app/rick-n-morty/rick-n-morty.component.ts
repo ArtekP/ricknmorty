@@ -54,5 +54,4 @@ export class RickNMortyComponent implements OnInit {
   getSpecificCharacters() {
     this.episodeCharacters = this.getData.getSeasonsCharactersNames();
   }
-
 }
