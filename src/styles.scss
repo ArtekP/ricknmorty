@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Ricky";
+  src: url('assets/fonts/header/dokdo.ttf') format("truetype");
+}
+
+body {
+  background-image: url(../src/assets/images/background.jpg);
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-position:top;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+}

@@ -1,0 +1,16 @@
+<nav class="seasons">
+  <ul *ngFor="let season of allSeasons; let index = index">
+    <li>
+      <a href="#" (click)="getSpecificSeason(index)">Season {{index + 1}} [{{allSeasons.length}} episodes]</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="list" *ngIf="isListVisible">
+  <ul class="ul">
+    <li *ngFor="let episode of listOfEpisodes; let index = index">
+      <span>Episode: {{ index+1 }}: {{ episode['name'] }}, {{episode['air_date'] | date:'dd/MM/yyyy'}}. </span>
+      <span *ngFor="let char of episode['characters']">Characters: {{char}}</span>
+    </li>
+  </ul>
+</div>

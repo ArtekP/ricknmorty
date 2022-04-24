@@ -1,0 +1,36 @@
+.seasons {
+  height: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 1rem 1rem 1rem;
+  background-color: rgba(21, 5, 78, 0.847);
+  color: white;
+  > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-family: "Ricky";
+    font-size: 1.2em;
+    > li {
+      > a {
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+}
+
+.list {
+  background-color: rgba(21, 5, 78, 0.847);
+  width: 50%;
+  color: white;
+
+  > ul {
+    > li {
+      > span {
+        cursor: pointer;
+      }
+    }
+  }
+}

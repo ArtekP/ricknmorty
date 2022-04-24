@@ -1,0 +1,12 @@
+header {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(21, 5, 78, 0.847);
+  color: white;
+  > img {
+    height: 6em;
+    width: 30%;
+  }
+}
