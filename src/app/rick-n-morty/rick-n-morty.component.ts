@@ -1,10 +1,13 @@
 import {
   Component,
-  OnInit
+  Input,
+  OnInit,
+  ViewChild
 } from '@angular/core';
 import {
   GetDataService
 } from './get-data.service';
+import { Episode } from './types';
 
 @Component({
   selector: 'app-rick-n-morty',
@@ -12,33 +15,24 @@ import {
   styleUrls: ['./rick-n-morty.component.scss']
 })
 export class RickNMortyComponent implements OnInit {
-  allSeasons: [] = [];
-  allCharacters: any[] = [];
+  @Input() spanId: any;
 
-  dataFromServ: any;
-  listOfEpisodes!: [];
+  allSeasons: Episode[] = [];
+  listOfEpisodes!: Episode[];
   isListVisible = false;
   lastClickedNavId!: number;
+  episodeCharacters!: any[];
 
-  constructor(private getData: GetDataService) {}
+  constructor(private getData: GetDataService) {
+  }
 
   ngOnInit(): void {
-    this.apiData();
     this.getAllSeasons();
-    this.getAllCharacters();
   }
 
   getAllSeasons() {
     this.getData.getAllSeasons().subscribe((data) => {
       this.allSeasons = data;
-      // console.log(this.allSeasons)
-    })
-  }
-
-  getAllCharacters() {
-    this.getData.getAllCharacters().subscribe((data) => {
-      this.allCharacters = data;
-      // console.log(this.allCharacters)
     })
   }
 
@@ -53,20 +47,12 @@ export class RickNMortyComponent implements OnInit {
       this.listOfEpisodes = data;
     });
     this.lastClickedNavId = index;
-    console.log(this.listOfEpisodes);
+
+    this.getSpecificCharacters()
   }
 
-  getCharactersForListOfEpisodes() {
-
+  getSpecificCharacters() {
+    this.episodeCharacters = this.getData.getSeasonsCharactersNames();
   }
 
-  apiData() {
-    let arr: any[] = [];
-    this.getData.getData().subscribe(val => {
-      this.dataFromServ = val;
-      for (let i = 0; i < 11; i++) {
-        arr.push(this.dataFromServ.results[i])
-      }
-    });
-  }
 }
